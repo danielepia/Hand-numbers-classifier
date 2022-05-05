@@ -3,10 +3,9 @@ let model;
 
 const webcam = new Webcam(document.getElementById('wc'));
 const dataset = new RPSDataset();
-var rockSamples=0, paperSamples=0, scissorsSamples=0, spockSamples=0, lizardSamples=0;
 let isPredicting = false;
 
-//const mobilenet = tf.loadLayersModel('model.json');
+
 
 async function loadMobilenet() {
   const mobilenet = await tf.loadLayersModel('https://storage.googleapis.com/tfjs-models/tfjs/mobilenet_v1_1.0_224/model.json');
@@ -47,9 +46,6 @@ async function predict() {
 			predictionText = "Five";
 			break;
             
-
-	
-            
 	}
 	document.getElementById("prediction").innerText = predictionText;
 			
@@ -73,9 +69,7 @@ function stopPredicting(){
 }
 
 
-function saveModel(){
-    model.save('downloads://my_model');
-}
+
 
 
 async function init(){
